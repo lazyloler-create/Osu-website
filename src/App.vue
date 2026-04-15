@@ -156,11 +156,11 @@
 import { ref } from 'vue';
 
 const videos = ref([
-  '/src/assets/videos/Osu.mp4',
-  '/src/assets/videos/Osu1.mp4',
-  '/src/assets/videos/Osu2.mp4',
-  '/src/assets/videos/Osu3.mp4',
-  '/src/assets/videos/Osu4.mp4',
+  '/videos/Osu.mp4',
+  '/videos/Osu1.mp4',
+  '/videos/Osu2.mp4',
+  '/videos/Osu3.mp4',
+  '/videos/Osu4.mp4',
 ]);
 
 const contents = ref([
