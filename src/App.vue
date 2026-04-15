@@ -52,7 +52,7 @@
   
   <div class ="carousel-indicators">
     <button 
-      v-for="(video, index) in videos"
+      v-for="(_, index) in videos"
       :key="index"
       class="indicator"
       :class="{ active: index === currentIndex }"
