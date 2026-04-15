@@ -189,12 +189,18 @@ const previousVideo = () => {
 
 import { onMounted } from 'vue';
 
-const backgrounds = Object.values(
-  import.meta.glob('./assets/bg*.{jpg,png,jpeg,webp}', {
-    eager: true,
-    import: 'default'
-  })
-);
+const backgrounds = [
+  '/img/bg1.webp',
+  '/img/bg2.webp',
+  '/img/bg3.webp',
+  '/img/bg4.webp',
+  '/img/bg5.webp',
+  '/img/bg6.webp',
+  '/img/bg7.webp',
+  '/img/bg8.webp',
+  '/img/bg9.webp',
+  '/img/bg10.webp',
+];
 
 // Change this line in your script:
 function setRandomBackground(): void {
