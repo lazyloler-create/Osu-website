@@ -1,0 +1,127 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: auto;
+  padding: clamp(20px, 5vw, 30px);
+  background-color: hsl(255, 10%, 25%);
+  border-radius: 35px;
+  border: 4px solid #fff;   
+  max-width: 900px;
+  width: 100%;
+  margin: 75px auto 0;
+  box-sizing: border-box;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+  display: flex;
+  justify-content: center;   /* keep text + image together */
+  align-items: center;
+  gap: 30px;
+  max-width: 900px;  
+  margin: 0;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
+  line-height: 1.4;
+  max-width: 500px;
+}
+
+.hero-text h3 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+.hero-text p {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  margin-bottom: 24px;
+  color: #d3d3d3;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+
+.hero-img {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.hero-img img {
+  max-width: clamp(150px, 40vw, 300px);
+  height: auto;
+  max-height: clamp(150px, 30vh, 300px);
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-right: 5px;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+  transition: transform 0.2s ease-in-out;
+}
+
+.hero-img img:hover {
+  transform: scale(1.05);
+}
+
+.cta {
+  text-decoration: none;
+  color: white;
+  padding: 12px 28px;
+  background-color: darkslateblue;
+  border-radius: 50px;
+  display: inline-block;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    min-height: auto;
+    margin-top: 50px;
+    padding: 20px 15px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero {
+    border-radius: 20px;
+    padding: 15px 10px;
+  }
+
+  .hero-text h3 {
+    margin-bottom: 12px;
+  }
+
+  .cta {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+  }
+
+  .hero-img img {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+}
