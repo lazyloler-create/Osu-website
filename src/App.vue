@@ -239,7 +239,7 @@ body {
   height: 100%;
   background-size: cover;
   background-position: center;
-  filter: blur(10px) brightness(0.6); /* Added brightness to make text pop */
+  filter: blur(7px) brightness(0.6); /* Added brightness to make text pop */
   z-index: -1; 
   transform: scale(1.1); /* Prevents white edges caused by blur */
 }
