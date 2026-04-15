@@ -30,10 +30,15 @@
   padding: 40px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   box-sizing: border-box;
-  /* Ensures it stays on the left */
   margin-right: auto; 
    align-items: flex-start; 
    margin-top: 0;  
+   transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-section:hover{
+    background-color: hsl(255, 10%, 30%);
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
 }
 
 /* 3. Gallery (Hugging Right) */
@@ -58,6 +63,14 @@
   border-radius: 15px;
   border: 2px solid #fff;
   display: block;
+  transition: transform 0.3s ease;
+  gap: 10px; /* Space between images in the grid */
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .gallery-item h4 {
