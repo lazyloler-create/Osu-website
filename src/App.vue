@@ -10,9 +10,9 @@
       <h2>osu!</h2>
       <ul>
         <li ><a href="index.html" target="_blank">home</a></li>
-        <li><a href="https://osu.ppy.sh/beatmapsets" target="_blank">beatmaps</a></li>
+        <li><a href="about.html" target="_blank">about</a></li>
+        <li><a href="contact.html" target="_blank">contact</a></li>
         <li><a href="https://osu.ppy.sh/community/forums" target="_blank">community</a></li>
-        <li><a href="https://osu.ppy.sh/rankings/osu/global" target="_blank">rankings</a></li>
         <li><a href="https://osu.ppy.sh/store/listing" target="_blank">store</a></li>
         <li><a href="https://osu.ppy.sh/home/download" target="_blank">download</a></li>
       </ul>
@@ -131,8 +131,6 @@
     <p>osu!standard, osu!taiko, osu!catch, and osu!mania each offer unique gameplay styles.</p>
   </section>
     </div>
-
-  
   </div>
   </div>
   
@@ -176,7 +174,6 @@ const contents = ref([
 
 const currentIndex = ref(0);
 
-// Navigation functions
 const nextVideo = () => {
   if (currentIndex.value < videos.value.length - 1) {
     currentIndex.value++;
