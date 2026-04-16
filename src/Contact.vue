@@ -6,14 +6,17 @@
     <i class="fas fa-bars"></i> 
   </label>
 
-  <nav class="navigation">
-    <h2>osu!</h2>
-    <ul>
-      <li><a href="index.html" target="_blank">home</a></li>
-      <li><a href="about.html" target="_blank">about</a></li>
-      <li><a href="contact.html" target="_blank">contact</a></li>
-    </ul>
-  </nav>
+    <nav class="navigation">
+      <h2>osu!</h2>
+      <ul>
+        <li ><a href="index.html" target="_blank">home</a></li>
+        <li><a href="about.html" target="_blank">about</a></li>
+        <li><a href="contact.html" target="_blank">contact</a></li>
+        <li><a href="https://osu.ppy.sh/community/forums" target="_blank">community</a></li>
+        <li><a href="https://osu.ppy.sh/store/listing" target="_blank">store</a></li>
+        <li><a href="https://osu.ppy.sh/home/download" target="_blank">download</a></li>
+      </ul>
+    </nav>  
 
   <div class="page-content">
     <div class="contact">
