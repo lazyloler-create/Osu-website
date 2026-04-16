@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:5174/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module" src="./osu homepage_files/client"></script>
+
+    
+    <link rel="icon" type="image/svg+xml" href="http://localhost:5174/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./osu homepage_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./osu homepage_files/all.min.css">
+    <title>osu homepage</title>
+  <style type="text/css" data-vite-dev-id="/home/andrej/React_projects/School/Osu-website/src/global.css">.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(244, 11, 121, 0.1), transparent),
+              radial-gradient(circle at 80% 70%, rgba(100, 50, 200, 0.1), transparent),
+              #0a0a0a;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 20px;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+* {
+  box-sizing: border-box;
+}
+</style><style type="text/css" data-vite-dev-id="/home/andrej/React_projects/School/Osu-website/src/navigation.css">nav,
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #161616;
+  padding: 10px 28px;
+  border-bottom: 3px solid #fbfbfb;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+nav label.menu-btn {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+#click {
+  position: fixed;
+  display: none;
+  z-index: 99999;
+}
+
+.dropdown {
+  position: fixed !important;
+  display: none;
+  z-index: 200;
+}
+
+nav h2 {
+  font-size: clamp(20px, 5vw, 30px);
+  color: white;
+
+  text-shadow: 
+  0 0 10px rgba(255, 255, 255, 0.3),
+  0 0 10px rgba(255, 255, 255, 0.3);
+  
+  margin: 0;
+  user-select: none;       
+  outline: none;
+  transition: transform 0.3s ease;
+}
+
+nav h2:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  font-size: clamp(12px, 2.5vw, 15px);
+  text-decoration: none;
+  color: whitesmoke;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+nav ul li a:hover {
+  color: #ff66cc;
+  border-bottom: 2px solid #ff66cc;
+}
+
+nav ul li a:active{
+  color: rgba(255, 255, 255, 0.641);
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+
+  nav ul {
+    gap: clamp(12px, 3vw, 30px);
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    max-width: 300px;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 60px 15px 15px 15px;
+    background: #161616;
+    transition: left 0.3s ease;
+    z-index: 150;
+    border-bottom: none;
+  }
+
+  .dropdown {
+    position: fixed;
+    display: block;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    top: 10px;
+    left: 10px;
+    z-index: 200;
+  }
+
+  #click:checked ~ nav {
+    left: 0;
+  }
+
+  nav h2 {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 10px;
+  }
+}</style><style type="text/css" data-vite-dev-id="/home/andrej/React_projects/School/Osu-website/src/main.css">.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: auto;
+  padding: clamp(20px, 5vw, 30px);
+  background-color: hsl(255, 10%, 25%);
+  border-radius: 35px;
+  border: 4px solid #fff;   
+  max-width: 900px;
+  width: 100%;
+  margin: 75px auto 0;
+  box-sizing: border-box;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+  display: flex;
+  justify-content: center;   /* keep text + image together */
+  align-items: center;
+  gap: 30px;
+  max-width: 900px;  
+  margin: 0;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
+  line-height: 1.4;
+  max-width: 500px;
+}
+
+.hero-text h3 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+.hero-text p {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  margin-bottom: 24px;
+  color: #d3d3d3;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+
+.hero-img {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.hero-img img {
+  max-width: clamp(150px, 40vw, 300px);
+  height: auto;
+  max-height: clamp(150px, 30vh, 300px);
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-right: 5px;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+  transition: transform 0.2s ease-in-out;
+}
+
+.hero-img img:hover {
+  transform: scale(1.02);
+}
+
+.cta {
+  text-decoration: none;
+  color: white;
+  padding: 12px 28px;
+  background-color: darkslateblue;
+  border-radius: 50px;
+  display: inline-block;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    min-height: auto;
+    margin-top: 50px;
+    padding: 20px 15px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero {
+    border-radius: 20px;
+    padding: 15px 10px;
+  }
+
+  .hero-text h3 {
+    margin-bottom: 12px;
+  }
+
+  .cta {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+  }
+
+  .hero-img img {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+}
+</style><style type="text/css" data-vite-dev-id="/home/andrej/React_projects/School/Osu-website/src/gallery.css">.gallery {
+  text-align: center;
+  padding: 40px 10px;
+  border-radius: 30px;
+  margin: 30px auto;
+  width: 100%;
+  max-width: 100%;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+.gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 3vw, 20px);
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.carousel-wrapper {
+  flex: 1;
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.carousel-content {
+  width: 100%;
+  background-color: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  aspect-ratio: 16 / 9;
+  height: clamp(250px, 50vw, 400px);
+  max-height: 60vh;
+}
+
+.carousel-content video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.carousel-btn {
+  background-color: #f40b79;
+  color: white;
+  border: none;
+  width: clamp(40px, 10vw, 50px);
+  height: clamp(40px, 10vw, 50px);
+  border-radius: 50%;
+  font-size: clamp(18px, 4vw, 24px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover:not(:disabled) {
+  background-color: #d60a66;
+  transform: scale(1.1);
+}
+
+.carousel-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #f40b79;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background-color: #f40b79;
+  transform: scale(1.2);
+}
+
+@media (max-width: 600px) {
+  .carousel-btn {
+    gap: 8px;
+  }
+
+  .carousel-container {
+    gap: 10px;
+  }
+
+  .carousel-indicators {
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .indicator {
+    width: 10px;
+    height: 10px;
+    border-width: 1.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .carousel-wrapper {
+    max-width: 100%;
+  }
+}
+
+.indicator:hover {
+  background-color: #f40b79;
+}
+
+.video-counter {
+  color: #2b2b2b;
+  font-size: 14px;
+  margin: 0;
+}
+
+.caption {
+  color: #fff;
+  font-size: 16px;
+  margin: 15px 0 0 0;
+  font-weight: 500;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+  background-color: #333;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.caption:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    flex-direction: column;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}</style><style type="text/css" data-vite-dev-id="/home/andrej/React_projects/School/Osu-website/src/features.css">.features-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100vw; 
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 0 5vw; 
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+.feature-section {
+  flex: 0 1 40%;                
+  background-color: #3b3a46;
+  color: white;
+  border-radius: 30px;
+  border: 3px solid #fff;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-sizing: border-box;
+  margin-right: auto; 
+   align-items: flex-start; 
+   margin-top: 0;  
+   transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-section:hover{
+    background-color: hsl(255, 10%, 30%);
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+}
+
+.features-gallery {
+  flex: 0 1 50%;              
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-left: auto; 
+  margin-top: 53px;
+}
+
+.gallery-item {
+  width: 100%;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  border: 2px solid #fff;
+  display: block;
+  transition: transform 0.3s ease;
+  gap: 10px; 
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item h4 {
+  text-align: center;
+  color: #ccc;
+  margin-top: 10px;
+}
+
+.features-h2 {
+  color: #ff2d75;
+  font-size: 2.5rem;
+  text-decoration: underline dotted;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 1024px) {
+  .features-container {
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    left: 0;
+    padding: 20px;
+  }
+  .feature-section, .features-gallery {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}</style><style type="text/css" data-vite-dev-id="/home/andrej/React_projects/School/Osu-website/src/faq.css">/* Wrapper: side-by-side layout */
+.faq-container {
+  display: flex;
+  flex-direction: row;       /* image left, FAQ right */
+  align-items: flex-start;   /* align to top */
+  justify-content: space-between; /* push them apart */
+  gap: clamp(20px, 5vw, 60px);                 /* breathing room between image and FAQ */
+  padding: clamp(20px, 5vw, 40px);
+  max-width: 100%;
+  margin: 0 auto;            /* center container on page */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Left side: Single Image */
+.modes-gallery {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.modes-item img {
+  width: 100%;
+  height: auto;
+  max-width: clamp(150px, 70vw, 450px);
+  max-height: 60vh;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+  overflow: hidden;
+}
+
+.modes-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Right side: FAQ Box */
+.FAQ-section {
+  flex: 1;
+  max-width: 700px;
+  width: 100%;
+  min-width: 0;
+  margin-left: auto;
+  background-color: hsl(255, 10%, 25%);
+  color: white;
+  padding: clamp(20px, 5vw, 40px);
+  border-radius: 35px;
+  border: 4px solid #fff;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  min-height: auto;
+  transition: color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.FAQ-section:hover {
+  background-color: hsl(255, 10%, 30%);
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+}
+
+.faq-title {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin-bottom: 20px;
+  margin-top: 0;
+  color: #f40b79;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+  text-decoration: dotted underline;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.faq-h3 {
+  font-size: clamp(0.95rem, 3vw, 1.2rem);
+  margin-bottom: 8px;
+  color: #fff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.FAQ-section p {
+  margin-bottom: 20px;
+  line-height: 1.5;
+  color: #ececec;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 900px) {
+  .faq-container {
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(20px, 5vw, 30px);
+    padding: clamp(15px, 4vw, 20px);
+  }
+
+  .FAQ-section {
+    width: 100%;
+    max-width: none;
+    padding: clamp(20px, 4vw, 25px);
+  }
+
+  .modes-item img {
+    max-width: clamp(120px, 60vw, 350px);
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-container {
+    padding: 15px 10px;
+  }
+
+  .FAQ-section {
+    padding: 20px;
+  }
+
+  .faq-title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .faq-h3 {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+  }
+}
+</style><style type="text/css" data-vite-dev-id="/home/andrej/React_projects/School/Osu-website/src/footer.css">.site-footer {
+  width: 100%;
+  flex-shrink: 0;               
+  margin-top: auto;            
+  background-color: hsl(255, 10%, 20%);
+  color: #fff;
+  text-align: center;
+  padding: clamp(20px, 5vh, 30px) 20px;
+  border-top: 3px solid #fbfbfb;
+  box-sizing: border-box;
+  position: relative;
+  overflow: visible;
+}
+
+.footer-social {
+  margin-bottom: 15px;
+}
+
+.footer-social a img {
+  width: 32px;
+  height: 32px;
+  margin: 0 10px;
+  object-fit: contain;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.footer-social a img:hover {
+  transform: scale(1.2);
+}
+
+.footer-copy {
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  color: #ccc;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 15px 10px;
+    margin-top: 40px;
+  }
+  .footer-social a img {
+    width: clamp(24px, 5vw, 28px);
+    height: clamp(24px, 5vw, 28px);
+    margin: 0 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 12px 10px;
+  }
+  .footer-social {
+    margin-bottom: 10px;
+  }
+}
+</style><style type="text/css" data-vite-dev-id="/home/andrej/React_projects/School/Osu-website/src/App.vue?vue&amp;type=style&amp;index=0&amp;lang.css">
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comfortaa', cursive; 
+  background-color: #000; 
+  color: white;
+}
+.background {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(7px) brightness(0.6);
+  z-index: -1; 
+  transform: scale(1.1);
+}
+.content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-grow: 1;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+</style></head>
+  <body>
+    <div id="app" data-v-app=""><div class="background" style="background-image: url(&quot;/img/bg2.webp&quot;);"></div><input type="checkbox" id="click"><label for="click" class="dropdown"><i class="fas fa-bars"></i></label><nav class="navigation"><h2>osu!</h2><ul><li><a href="http://localhost:5174/index.html" target="_blank">home</a></li><li><a href="https://osu.ppy.sh/beatmapsets" target="_blank">beatmaps</a></li><li><a href="https://osu.ppy.sh/community/forums" target="_blank">community</a></li><li><a href="https://osu.ppy.sh/rankings/osu/global" target="_blank">rankings</a></li><li><a href="https://osu.ppy.sh/store/listing" target="_blank">store</a></li><li><a href="https://osu.ppy.sh/home/download" target="_blank">download</a></li></ul></nav><div class="container"><div class="content"><main class="hero"><div class="hero-content"><div class="hero-text"><h3><span style="color:#f40b79;">Rhythm</span> is just a <span style="color:#f40b79;">click</span> away! </h3><p>Play. Click. Groove. Rhythm made simple.</p><a class="cta" href="https://osu.ppy.sh/home/download" target="_blank">Download now!</a></div><div class="hero-img"><img src="./osu homepage_files/osu_girl.png" alt="osu logo"></div></div></main><section class="gallery"><h2>Gameplay Videos</h2><div class="carousel-container"><button class="carousel-btn prev-btn" disabled="">❮</button><div class="carousel-wrapper"><div class="carousel-content"><video controls=""><source src="/videos/Osu.mp4" type="video/mp4"></video></div><p class="caption">Startup animation</p></div><button class="carousel-btn next-btn">❯</button></div><div class="carousel-indicators"><button class="indicator active"></button><button class="indicator"></button><button class="indicator"></button><button class="indicator"></button><button class="indicator"></button></div><p class="video-counter">1 / 5</p></section><div class="features-container"><section class="feature-section"><h2 class="features-h2"><strong>Features</strong></h2><h3>Endless beatmaps</h3><p>Access thousands of songs and challenges created by the community, with new maps ranked daily.</p><h3>Global Rankings</h3><p>Compete with players from around the world and climb the leaderboards.</p><h3>Multiplayer Mode</h3><p>Play with friends or challenge players from around the world in real-time multiplayer matches.</p><h3>Customization</h3><p>Personalize your gameplay with skins, mods, and settings that adapt to your style.</p><h3>Create your own beatmaps</h3><p>Design and share your own beatmaps with the community.</p></section><div class="features-gallery"><div class="gallery-item"><img src="./osu homepage_files/Customize1.jpg" alt="Skin customization"><h4>Skin customization</h4></div><div class="gallery-item"><img src="./osu homepage_files/Customize2.jpg" alt="Skin customization"><h4>Skin customization</h4></div><div class="gallery-item"><img src="./osu homepage_files/editor.jpg" alt="Editor"><h4>Editor</h4></div><div class="gallery-item"><img src="./osu homepage_files/daily.jpg" alt="Daily challenges"><h4>Daily challenges</h4></div></div></div><div class="faq-container"><div class="modes-gallery"><div class="modes-item"><img src="./osu homepage_files/pipi.png" alt="osu mode"></div></div><section class="FAQ-section"><h2 class="faq-title">FAQ</h2><h3 class="faq-h3">Is osu! free?</h3><p>Yes, osu! is completely free to download and play.</p><h3 class="faq-h3">How do I install beatmaps?</h3><p>Download beatmaps from the osu! website and open them in the game client.</p><h3 class="faq-h3">Can I play offline?</h3><p>Yes, you can play offline, but rankings and multiplayer require an internet connection.</p><h3 class="faq-h3">What are the different modes?</h3><p>osu!standard, osu!taiko, osu!catch, and osu!mania each offer unique gameplay styles.</p></section></div></div></div><footer class="site-footer"><div class="footer-social"><a href="https://osu.ppy.sh/" target="_blank"><img src="./osu homepage_files/Osu_Black.png" alt="osu official site"></a><a href="https://discord.gg/osu" target="_blank"><img src="./osu homepage_files/discord-round-black-icon.webp" alt="Discord"></a><a href="https://twitter.com/osugame" target="_blank"><img src="./osu homepage_files/X-logo.png" alt="Twitter"></a><a href="https://github.com/ppy" target="_blank"><img src="./osu homepage_files/github.png" alt="GitHub"></a></div><p class="footer-copy">© 2026 osu! — Rhythm lives here.</p></footer></div>
+    <script type="module" src="./osu homepage_files/main.ts"></script>
+  
+</body></html>

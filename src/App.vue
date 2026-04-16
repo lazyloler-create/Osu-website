@@ -1,21 +1,26 @@
 <template>
   <div class="background"></div>
 
-  <div class="content">
-    <nav class="navigation">
+  <input type="checkbox" id="click">
+  <label for="click" class="dropdown">
+    <i class="fas fa-bars"></i> 
+  </label>
+
+  <nav class="navigation">
       <h2>osu!</h2>
-        <ul>
-          <li><a href="index.html" target="_blank">home</a></li>
-          <li><a href="https://osu.ppy.sh/beatmapsets" target="_blank">beatmaps</a></li>
-          <li><a href="https://osu.ppy.sh/community/forums" target="_blank">community</a></li>
-          <li><a href="https://osu.ppy.sh/rankings/osu/global" target="_blank">rankings</a></li>
-          <li><a href="https://osu.ppy.sh/store/listing" target="_blank">store</a></li>
-          <li><a href="https://osu.ppy.sh/home/download" target="_blank">download</a></li>
-        </ul>
+      <ul>
+        <li ><a href="index.html" target="_blank">home</a></li>
+        <li><a href="https://osu.ppy.sh/beatmapsets" target="_blank">beatmaps</a></li>
+        <li><a href="https://osu.ppy.sh/community/forums" target="_blank">community</a></li>
+        <li><a href="https://osu.ppy.sh/rankings/osu/global" target="_blank">rankings</a></li>
+        <li><a href="https://osu.ppy.sh/store/listing" target="_blank">store</a></li>
+        <li><a href="https://osu.ppy.sh/home/download" target="_blank">download</a></li>
+      </ul>
     </nav>
 
     <div class="container">
-
+<div class="content">
+  
   <main class="hero">
   <div class="hero-content">
     <div class="hero-text">
@@ -104,14 +109,12 @@
   </div>
   
 <div class="faq-container">
-  <!-- Left side: Modes Gallery -->
   <div class="modes-gallery">
     <div class="modes-item">
       <img src="./assets/pipi.png" alt="osu mode">
     </div>
   </div>
 
-  <!-- Right side: FAQ Box -->
   <section class="FAQ-section">
     <h2 class="faq-title">FAQ</h2>
 
@@ -129,7 +132,7 @@
   </section>
     </div>
 
-
+  
   </div>
   </div>
   
@@ -186,7 +189,6 @@ const previousVideo = () => {
   }
 };
 
-
 import { onMounted } from 'vue';
 
 const backgrounds = [
@@ -202,12 +204,10 @@ const backgrounds = [
   '/img/bg10.webp',
 ];
 
-// Change this line in your script:
 function setRandomBackground(): void {
   const randomIndex = Math.floor(Math.random() * backgrounds.length);
   const selectedImage = backgrounds[randomIndex] as string;
 
-  // Target the div with the class 'background' instead of document.body
   const bgDiv = document.querySelector('.background') as HTMLElement;
   if (bgDiv) {
     bgDiv.style.backgroundImage = `url(${selectedImage})`;
@@ -225,9 +225,8 @@ onMounted(() => {
 body {
   margin: 0;
   padding: 0;
-  /* 2. REMOVE overflow: hidden; so you can scroll */
-  font-family: 'Comfortaa', cursive; /* 3. Apply the font */
-  background-color: #000; /* Fallback color */
+  font-family: 'Comfortaa', cursive; 
+  background-color: #000; 
   color: white;
 }
 
@@ -239,9 +238,9 @@ body {
   height: 100%;
   background-size: cover;
   background-position: center;
-  filter: blur(7px) brightness(0.6); /* Added brightness to make text pop */
+  filter: blur(7px) brightness(0.6);
   z-index: -1; 
-  transform: scale(1.1); /* Prevents white edges caused by blur */
+  transform: scale(1.1);
 }
 
 .content {
@@ -253,7 +252,6 @@ body {
   min-height: 100vh;
 }
 
-/* Fix for the navigation/container */
 .container {
   width: 100%;
   margin: 0 auto;
@@ -261,7 +259,6 @@ body {
   flex-grow: 1;
 }
 
-/* Ensure images don't break layout */
 img {
   max-width: 100%;
   height: auto;

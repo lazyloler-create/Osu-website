@@ -11,6 +11,25 @@ nav,
   overflow: visible;
 }
 
+nav label.menu-btn {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+#click {
+  position: fixed;
+  display: none;
+  z-index: 99999;
+}
+
+.dropdown {
+  position: fixed !important;
+  display: none;
+  z-index: 200;
+}
+
 nav h2 {
   font-size: clamp(20px, 5vw, 30px);
   color: white;
@@ -70,25 +89,54 @@ nav ul li a:active{
 
 @media (max-width: 600px) {
   nav {
-    min-height: auto;
-    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    max-width: 300px;
+    height: 100vh;
+    flex-direction: column;
     align-items: center;
     gap: 12px;
-    padding: 10px 15px;
+    padding: 60px 15px 15px 15px;
+    background: #161616;
+    transition: left 0.3s ease;
+    z-index: 150;
+    border-bottom: none;
+  }
+
+  .dropdown {
+    position: fixed;
+    display: block;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    top: 10px;
+    left: 10px;
+    z-index: 200;
+  }
+
+  #click:checked ~ nav {
+    left: 0;
   }
 
   nav h2 {
     margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
   }
 
   nav ul {
     flex-direction: column;
     gap: 12px;
     text-align: center;
+    padding: 0;
+    width: 100%;
   }
 
   nav ul li a {
-    margin-top: 0;
-    margin-right: 0;
+    display: block;
+    padding: 10px;
   }
 }

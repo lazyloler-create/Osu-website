@@ -52,7 +52,6 @@
   object-fit: contain;
 }
 
-/* Carousel Buttons */
 .carousel-btn {
   background-color: #f40b79;
   color: white;
@@ -80,7 +79,6 @@
   opacity: 0.5;
 }
 
-/* Indicator Dots */
 .carousel-indicators {
   display: flex;
   justify-content: center;
@@ -145,7 +143,6 @@
   margin: 0;
 }
 
-/* Caption Styling */
 .caption {
   color: #fff;
   font-size: 16px;

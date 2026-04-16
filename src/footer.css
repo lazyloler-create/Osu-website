@@ -1,7 +1,8 @@
-/* Footer stays at bottom */
 .site-footer {
   width: 100%;
-  flex-shrink: 0;                 /* Prevent collapsing */  margin-top: auto;               /* Push to bottom */  background-color: hsl(255, 10%, 20%);
+  flex-shrink: 0;               
+  margin-top: auto;            
+  background-color: hsl(255, 10%, 20%);
   color: #fff;
   text-align: center;
   padding: clamp(20px, 5vh, 30px) 20px;
@@ -34,7 +35,6 @@
   line-height: 1.4;
 }
 
-/* Mobile tweaks */
 @media (max-width: 600px) {
   .site-footer {
     padding: 15px 10px;
